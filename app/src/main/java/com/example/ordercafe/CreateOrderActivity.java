@@ -29,20 +29,20 @@ public class CreateOrderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_order);
         Intent intent = getIntent();
-          if (intent.hasExtra("name") && intent.hasExtra("password")) {
-           name = intent.getStringExtra("name");
-           password = intent.getStringExtra("password");
-        } else  {
+        if (intent.hasExtra("name") && intent.hasExtra("password")) {
+            name = intent.getStringExtra("name");
+            password = intent.getStringExtra("password");
+        } else {
             name = getString(R.string.default_name);
             password = getString(R.string.default_password);
         }
         drink = getString(R.string.tea);
         textViewHello = findViewById(R.id.textViewHello);
-            String hello = String.format(getString(R.string.hello_user), name);
-            textViewHello.setText(hello);
+        String hello = String.format(getString(R.string.hello_user), name);
+        textViewHello.setText(hello);
         textViewAdditions = findViewById(R.id.textViewAdditions);
-            String additions = String.format(getString(R.string.additions), drink);
-            textViewAdditions.setText(additions);
+        String additions = String.format(getString(R.string.additions), drink);
+        textViewAdditions.setText(additions);
         checkBoxMilk = findViewById(R.id.checkboxMilk);
         checkBoxSugar = findViewById(R.id.checkboxSugar);
         checkBoxLemon = findViewById(R.id.checkboxLemon);
@@ -50,7 +50,6 @@ public class CreateOrderActivity extends AppCompatActivity {
         spinnerOfCoffee = findViewById(R.id.optionsOfCoffee);
         builderAdditions = new StringBuilder();
     }
-
 
 
     public void onClickChangeDrink(View view) {
@@ -69,7 +68,6 @@ public class CreateOrderActivity extends AppCompatActivity {
         }
         String additions = String.format(getString(R.string.additions), drink);
         textViewAdditions.setText(additions);
-
     }
 
     public void onClickSendOrder(View view) {
@@ -84,12 +82,12 @@ public class CreateOrderActivity extends AppCompatActivity {
             builderAdditions.append(getString(R.string.lemon)).append(" ");
         }
         String optionOfDrink = "";
-        if (drink.equals(getString(R.string.tea))){
+        if (drink.equals(getString(R.string.tea))) {
             optionOfDrink = spinnerOfTea.getSelectedItem().toString();
         } else {
             optionOfDrink = spinnerOfCoffee.getSelectedItem().toString(); //getSelectItem - метод, который вынимает объект, дальше с помощью toString приводим его значения к строчному виду
         }
-        String order = String.format(getString(R.string.order),name,password,drink,optionOfDrink);
+        String order = String.format(getString(R.string.order), name, password, drink, optionOfDrink);
         String additions;
         if (builderAdditions.length() > 0) {
             additions = getString(R.string.need_additions) + builderAdditions.toString();
@@ -101,5 +99,4 @@ public class CreateOrderActivity extends AppCompatActivity {
         intent.putExtra("order", fullOrder);
         startActivity(intent);
     }
-
-    }
+}
