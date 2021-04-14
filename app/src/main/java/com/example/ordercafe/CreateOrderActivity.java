@@ -51,7 +51,6 @@ public class CreateOrderActivity extends AppCompatActivity {
         builderAdditions = new StringBuilder();
     }
 
-
     public void onClickChangeDrink(View view) {
         RadioButton button = (RadioButton) view;
         int id = button.getId();
