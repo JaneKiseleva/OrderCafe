@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         } else {
             Toast.makeText(this,R.string.warning_fill_fields, Toast.LENGTH_SHORT).show();
-            //всплывающее сообщение, с которым не взаимодействует пользователь, контекст this, дальше само сообщение и длительность (short или long). Метод show() показывает эту активность пользователю
+            //всплывающее сообщение, с которым не взаимодействует пользователь, контекст this, дальше само сообщение и длительность (short или long). Метод show() показывает эту активность пользователю.
         }
     }
 }
